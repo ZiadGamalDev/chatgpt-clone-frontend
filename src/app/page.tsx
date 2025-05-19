@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
+import { v4 as uuidv4 } from 'uuid';
 
 export default function Home() {
   const [input, setInput] = useState("");
@@ -9,16 +10,28 @@ export default function Home() {
   const [isTyping, setIsTyping] = useState(false);
   const chatEndRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const [userId, setUserId] = useState<string>("");
 
-  const baseUrl = "http://localhost:5000";
-  const userId = "static-user-id";
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+
+  useEffect(() => {
+    // Get userId from localStorage or create a new one
+    const storedUserId = localStorage.getItem('chatUserId');
+    if (storedUserId) {
+      setUserId(storedUserId);
+    } else {
+      const newUserId = uuidv4();
+      localStorage.setItem('chatUserId', newUserId);
+      setUserId(newUserId);
+    }
+  }, []);
 
   useEffect(() => {
     axios
       .get(`${baseUrl}/chat-history?userId=${userId}`)
       .then((res) => setMessages(res.data))
       .catch((err) => console.error("Error fetching chat history:", err));
-  }, []);
+  }, [userId, baseUrl]);
 
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -38,6 +51,7 @@ export default function Home() {
 
       setMessages((prev) => [...prev, botMessage]);
     } catch (error) {
+      console.error("Failed to get response:", error);
       setMessages((prev) => [...prev, { role: "bot", text: "Error fetching AI response." }]);
     } finally {
       setIsTyping(false);

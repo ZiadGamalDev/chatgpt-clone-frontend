@@ -11,7 +11,7 @@ This is the frontend of the **ChatGPT Clone** built using **Next.js 14 (App Rout
 
 ## 🔗 Live Demo
 
-[Will be added after deployment]
+[https://chatgpt-clone-frontend-alpha.vercel.app/](https://chatgpt-clone-frontend-alpha.vercel.app/)
 
 ## 🚀 Backend Repo
 

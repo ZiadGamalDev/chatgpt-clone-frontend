@@ -44,7 +44,7 @@ npm install
 Create a `.env.local` file and add:
 
 ```env
-NEXT_PUBLIC_BACKEND_URL=https://your-backend-api.onrender.com
+NEXT_PUBLIC_API_URL=https://chatgpt-clone-backend.dinamo-app.com
 ```
 
 4. **Run the app locally**:

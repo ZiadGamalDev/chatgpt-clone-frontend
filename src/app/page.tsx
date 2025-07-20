@@ -12,7 +12,14 @@ export default function Home() {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [userId, setUserId] = useState<string>("");
 
-  const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+  
+  // Debug logging
+  console.log("Frontend Environment:", {
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
+    baseUrl: baseUrl,
+    NODE_ENV: process.env.NODE_ENV
+  });
 
   useEffect(() => {
     // Get userId from localStorage or create a new one

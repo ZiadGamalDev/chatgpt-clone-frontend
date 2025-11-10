@@ -11,7 +11,7 @@ This is the frontend of the **ChatGPT Clone** built using **Next.js 14 (App Rout
 
 ## 🔗 Live Demo
 
-[https://chatgpt-clone-frontend-alpha.vercel.app/](https://chatgpt-clone-frontend-alpha.vercel.app/)
+[https://chatgpt-clone.ziadgamal.com/](https://chatgpt-clone.ziadgamal.com/)
 
 ## 🚀 Backend Repo
 
@@ -44,7 +44,7 @@ npm install
 Create a `.env.local` file and add:
 
 ```env
-NEXT_PUBLIC_API_URL=https://chatgpt-clone-backend.dinamo-app.com
+NEXT_PUBLIC_API_URL=https://chatgpt-clone-api.ziadgamal.com
 ```
 
 4. **Run the app locally**:

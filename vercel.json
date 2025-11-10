@@ -1,1 +1,5 @@
-{}
+{
+  "env": {
+    "NEXT_PUBLIC_API_URL": "https://chatgpt-clone-api.ziadgamal.com"
+  }
+}
